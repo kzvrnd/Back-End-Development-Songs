@@ -53,12 +53,12 @@ def parse_json(data):
 ######################################################################
 @app.route("/health", methods=['GET'])
 def health():
-    "return status of /health endpoint"
+    """return status of /health endpoint"""
     return ({"status": "OK"}, 200)
 
 @app.route("/count", methods=['GET'])
 def count():
-    "return count of congs in list"
+    """return count of congs in list"""
     try:
         return {"count": len(songs_list)}, 200
     except NameError:
@@ -66,7 +66,7 @@ def count():
     
 @app.route("/song")
 def songs():
-    "return list of all songs"
+    """return list of all songs"""
     results = list(db.songs.find({}))    
     return {"songs": parse_json(results)}, 200
 
